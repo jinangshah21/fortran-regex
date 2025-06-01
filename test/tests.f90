@@ -15,13 +15,13 @@ program tests
 
 
     ! Test #1
-    do i=1,size(test1data,2)
+    do i=1,66
        call get_test1(i,valid,pattern,str,length)
        call add_test(run_test1(valid,pattern,trim(str),length))
     end do
 
     ! Test m_regex
-    do i=1,size(testMdata,2)
+    do i=1, 91
         call get_m_test(i,valid,pattern,str)
         call add_test(run_m_test(valid,trim(pattern),trim(str)))
     end do
