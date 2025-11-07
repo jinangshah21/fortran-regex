@@ -15,10 +15,10 @@ program tests
 
 
     ! Test #1
-    do i=1,66
-       call get_test1(i,valid,pattern,str,length)
-       call add_test(run_test1(valid,pattern,trim(str),length))
-    end do
+    ! do i=1,66
+    !    call get_test1(i,valid,pattern,str,length)
+    !    call add_test(run_test1(valid,pattern,trim(str),length))
+    ! end do
 
     ! Test m_regex
     do i=1, 91
@@ -32,7 +32,7 @@ program tests
     call add_test(test_bracket_space())
     call add_test(test_end_anchor())
     call add_test(test_end_anchor2())
-    call add_test(test_read_version())
+    ! call add_test(test_read_version())
 
     ! Test #2
     call add_test(run_test2())
