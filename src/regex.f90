@@ -339,7 +339,7 @@ module regex_module
           matchquestion = .true.
           return
        elseif (len(text)>0) then
-          if (pat_match(p,text) .and. len(text)>1) then
+          if (pat_match(p,text(1:1)) .and. len(text)>1) then
              if (matchpattern(pattern,text(2:),matchlength)) then
                 matchlength  = matchlength+1
                 matchquestion = .true.
@@ -370,7 +370,7 @@ module regex_module
        it = it0
 
        do while (it>0 .and. it<=len(text))
-          if (.not.pat_match(p, text(it:))) exit
+          if (.not.pat_match(p, text(it:it))) exit
           it          = it+1
           matchlength = matchlength+1
        end do
@@ -399,7 +399,8 @@ module regex_module
 
        it = it0
        do while (it>0 .and. it<=len(text))
-          if (.not. pat_match(p, text(it:))) exit
+         ! print *, 'p%type=', p%type, 'p%c=', len(p%ccl), 'text=', text(it:), 'patmatch=', pat_match(p, text(it:))
+          if (.not. pat_match(p, text(it:it))) exit
           it = it+1
           matchlength = matchlength+1
        end do
